@@ -27,9 +27,10 @@
   <%= simple_format(@article.description) %>
 
   <div class="article-actions">
-    <%= link_to 'Edit this article', edit_article_path(@article), class: "btn btn-primary btn-xs" %>
-    <%= link_to "Delete this article", article_path(@article), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-xs btn-danger" %>
+    <% if logged_in? && current_user == @article.user %>
+      <%= link_to 'Edit this article', edit_article_path(@article), class: "btn btn-primary btn-xs" %>
+      <%= link_to "Delete this article", article_path(@article), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-xs btn-danger" %>
+    <% end %>
     <%= link_to 'View all articles', articles_path, class: "btn btn-success btn-xs" %>
-    
   </div>
 </div>
