@@ -59,8 +59,10 @@ class ArticlesController < ApplicationController
   end
 
   def require_same_user
-    if current_user != @article.user
-      flash[:danger] = "Only the author can edit/delete his/her articles"
+    # we have user from the set_article() method. 
+    # The current user must be the article author or an admin user
+    if current_user != @article.user && !current_user.admin?
+      flash[:danger] = 'Only the author can edit/delete his/her articles'
       redirect_to root_path
     end
   end
