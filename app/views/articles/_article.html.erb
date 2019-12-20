@@ -16,6 +16,9 @@
             </small>
           </div>
         </div>
+        <% if article.categories.any? %>
+          <p>Categories: <%= render article.categories %></p>
+        <% end %>
         <%# display edit/delete links if 1)the current user is logged in and is the author of the article or 2)the current user is an admin user %>
         <% if logged_in? && (current_user == article.user || current_user.admin?) %>
           <div class="article-actions">
