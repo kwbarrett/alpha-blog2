@@ -7,7 +7,7 @@ ruby '2.4.1'
 gem 'rails', '~> 5.2.4'
 
 # Use Puma as the app server
-gem 'puma', '~> 4.3.1'
+gem 'puma', '~> 4.3.8'
 
 gem 'jquery-rails'
 # Use SCSS for stylesheets
